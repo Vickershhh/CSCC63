@@ -1,0 +1,44 @@
+CSCC63 A2
+1 
+(a) 
+Assume L is decidable,then there is a TM R decide it.And we will construct TM S to decide the acceptance problem by using R.
+S = “On input <M,W>”
+ 1. Run TM R on input <M,w>
+ 2. If R rejects (i.e. on input w, M just visit start state once), then S rejects.
+ 3. If R accepts (i.e. on input w, M visit start state more than once), then S accepts.
+And now we know the S decides acceptance problem which is contradicts that is undecidable,so L is undecidable.
+(b)
+Let R be the TM that decides L.
+Now we will construct S to decide the  by using R. And we will construct another TM  which behaves like M on input w,but reject all other input.Then pass to R, if  rejects on the input w,R rejects and S accepts.If accepts and the total steps is equal or more than 100,R accepts and S rejects,otherwise,R rejects and S accepts.
+S = “On input <M,w>”
+ 1. Construct <> from M and w
+     = “On input x”
+        1) if x  w, rejects
+        And if x = w:
+        2) if M rejects w, rejects.
+        3) if M accepts w and the total steps is less than 100, rejects.
+        4) Otherwise,accepts
+ 2. Run R on input <>,if R rejects,S accepts, otherwise, S rejects.
+And now we know the S decides acceptance problem which is contradicts that is undecidable,so L is undecidable.
+(c)
+Let R be the TM that decides L.Now we will construct S to decide the  by using R. And we will construct another TM  which behaves like M on input (i.e. All accepted input). Then pass  to R, if performs at least 100 steps on all accepted input, R accepts and S rejects,otherwise,R rejects and S rejects.
+S = “On input <M,w>”
+ 1. Construct <> from M and w
+     = “On input ”
+        1) for element x in 
+           If M doesn’t perform at least 100 steps on x,reject
+       2)if M performs at least 100 steps on all accepted input,accepts.
+  2. Run R on input <>,if R rejects,S accepts, otherwise, S rejects.
+And now we know the S decides acceptance problem which is contradicts that is undecidable,so L is undecidable.
+
+2.
+Want to prove that there exists an undecidable subset of 
+We can define a string  which is formed by (n-1) 0’s, and then we can define that any subset S of  is formed by an infinite binary string, and the  character of string should be 1 only if  is in S and would be 0 otherwise. So each subset has a unique corresponding infinite binary string,which is and uncountable set.And also we know that the number of TM is countable,so there is some subset of  cannot find a TM recognize it.So there exists an undecidable subset of .
+
+
+3
+(a)
+Assume  is decidable,then there is a TM R decide it.And we will construct TM S to decide the acceptance problem by using R.
+
+
+        
